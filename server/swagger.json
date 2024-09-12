@@ -1,0 +1,48 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API doc for ecommerce website",
+    "version": "1.0.0",
+    "title": "Ecommerce API'S",
+    "termsOfService": "http://swagger.io/terms/"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/user/signin": {
+      "post": {
+        "summary": "User signin",
+        "description": "returns a authentication token",
+        "operationId": "login",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "phonenumber": "body",
+            "password": "body",
+            "description": "User Credentials",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SigninRequest"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "SigninRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
